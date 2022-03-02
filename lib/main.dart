@@ -49,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String userText = 'You have pushed the button this many times:';
 
   void _incrementCounter() {
     setState(() {
@@ -58,6 +59,12 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+      if (_counter == 11) {
+        setState(() {
+          _counter = 0;
+          userText = 'it is not a clicker you dumbass';
+        });
+      }
     });
   }
 
@@ -95,8 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Text(
+              userText,
             ),
             Text(
               '$_counter',
